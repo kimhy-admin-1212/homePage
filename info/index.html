@@ -6607,6 +6607,51 @@
   <script src="/info/lib/config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.6/dist/umd/supabase.min.js"></script>
   <script type="text/javascript" defer="" src="https://kimhyassets.vercel.app/check_access/check_access.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const supabase = window.supabase.createClient(
+        CONFIG.SUPABASE_URL,
+        CONFIG.SUPABASE_KEY
+      );
+
+      const oldForm = document.querySelector(".ladi-form");
+      const form = oldForm.cloneNode(true);
+      oldForm.parentNode.replaceChild(form, oldForm);
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const name = e.target.elements["name"].value.trim();
+        const message = e.target.elements["message"].value.trim();
+        const phone = e.target.elements["phone"].value.trim();
+
+        if (!name || !message || !phone) {
+          alert("Vui lòng nhập đầy đủ thông tin.");
+          return;
+        }
+
+        if (!/^\d{10}$/.test(phone)) {
+          alert("Vui lòng nhập đúng định dạng số điện thoại (10 chữ số).");
+          return;
+        }
+
+        const { error } = await supabase
+          .from("contact_info")
+          .insert([{ name, message, phone }]);
+
+        if (error) {
+          console.error(error);
+          alert("Lỗi khi gửi dữ liệu.");
+        } else {
+          form.reset();
+          alert("Cám ơn bạn đã gửi thông tin cho Kim Hỷ!");
+        }
+      });
+
+      document.getElementById("BUTTON4").addEventListener("click", () => {
+        form.requestSubmit();
+      });
+    });
+  </script>
 </body>
 <savior-host style="
       all: unset;
