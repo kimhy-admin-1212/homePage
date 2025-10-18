@@ -1486,12 +1486,13 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
     document.getElementById("downloadCard").addEventListener("click", async () => {
       const section = document.getElementById("SECTION1");
       if (!section) return alert("Không tìm thấy thiệp!");
 
-      // Hiệu ứng chờ
+      // Hiệu ứng loading
       const newTab = window.open("", "_blank");
       newTab.document.write(`
     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -1505,40 +1506,40 @@
   `);
 
       try {
-        const scale = window.devicePixelRatio || 2; // tự động lấy DPI
+        // 🔹 Dùng DPI thật của thiết bị
+        const scale = window.devicePixelRatio || 2;
         const canvas = await html2canvas(section, {
-          scale: scale,
-          useCORS: true,
+          scale: scale,           // càng cao càng nét
+          useCORS: true,          // load ảnh từ CDN
           backgroundColor: null,
           logging: false,
           width: section.offsetWidth,
           height: section.offsetHeight
         });
 
-        const dataUrl = canvas.toDataURL("image/png", 1.0);
+        // 🔹 Xuất blob chất lượng cao
+        canvas.toBlob(blob => {
+          const blobUrl = URL.createObjectURL(blob);
 
-        // 💻 PC tải trực tiếp
-        // Nếu là mobile → hiển thị ảnh blob, không bị .bin
-        if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
-          canvas.toBlob(blob => {
-            const blobUrl = URL.createObjectURL(blob);
-            newTab.location.href = blobUrl; // mở đúng ảnh
-          }, "image/png");
-        } else {
-          const link = document.createElement("a");
-          link.download = "thiep-2010.png";
-          link.href = canvas.toDataURL("image/png", 1.0);
-          link.click();
-          newTab.close();
-        }
+          if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+            // 📱 Mobile → mở ảnh để giữ tay lưu
+            newTab.location.href = blobUrl;
+          } else {
+            // 💻 PC → tải trực tiếp
+            const link = document.createElement("a");
+            link.download = "thiep-2010.png";
+            link.href = blobUrl;
+            link.click();
+            newTab.close();
+          }
+        }, "image/png", 1.0); // 1.0 = chất lượng cao nhất
       } catch (err) {
-        console.error(err);
+        console.error("❌ Lỗi khi tạo ảnh:", err);
         newTab.close();
-        alert("❌ Lỗi khi tạo ảnh, vui lòng thử lại.");
+        alert("Không thể tạo ảnh, vui lòng thử lại.");
       }
     });
   </script>
-
 
   <script>
     // Khi trang (bao gồm ảnh, font, CSS...) load xong
