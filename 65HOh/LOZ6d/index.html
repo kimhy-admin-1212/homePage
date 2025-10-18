@@ -1491,7 +1491,6 @@
       const section = document.getElementById("SECTION1");
       if (!section) return alert("Không tìm thấy thiệp!");
 
-      // Hiệu ứng chờ
       const newTab = window.open("", "_blank");
       newTab.document.write(`
     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -1505,32 +1504,40 @@
   `);
 
       try {
-        const scale = window.devicePixelRatio || 2; // tự động lấy DPI
+        // 🧩 Ngăn animation/transform gây vạch mờ
+        section.querySelectorAll('*').forEach(el => {
+          el.style.animation = 'none';
+          el.style.transition = 'none';
+          el.style.transform = 'none';
+          el.style.filter = 'none';
+        });
+        section.style.transform = 'translateZ(0)';
+
+        const scale = window.devicePixelRatio || 2;
+        const width = Math.floor(section.offsetWidth * scale);
+        const height = Math.floor(section.offsetHeight * scale);
+
         const canvas = await html2canvas(section, {
-          scale: scale,
+          scale,
+          width,
+          height,
           useCORS: true,
-          backgroundColor: null,
-          logging: false,
-          width: section.offsetWidth,
-          height: section.offsetHeight
+          backgroundColor: "#fff"
         });
 
-        const dataUrl = canvas.toDataURL("image/png", 1.0);
+        canvas.toBlob(blob => {
+          const blobUrl = URL.createObjectURL(blob);
+          if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+            newTab.location.href = blobUrl;
+          } else {
+            const link = document.createElement("a");
+            link.download = "thiep-2010.png";
+            link.href = blobUrl;
+            link.click();
+            newTab.close();
+          }
+        }, "image/png", 1.0);
 
-        // 💻 PC tải trực tiếp
-        // Nếu là mobile → hiển thị ảnh blob, không bị .bin
-        if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
-          canvas.toBlob(blob => {
-            const blobUrl = URL.createObjectURL(blob);
-            newTab.location.href = blobUrl; // mở đúng ảnh
-          }, "image/png");
-        } else {
-          const link = document.createElement("a");
-          link.download = "thiep-2010.png";
-          link.href = canvas.toDataURL("image/png", 1.0);
-          link.click();
-          newTab.close();
-        }
       } catch (err) {
         console.error(err);
         newTab.close();
@@ -1538,7 +1545,6 @@
       }
     });
   </script>
-
 
   <script>
     // Khi trang (bao gồm ảnh, font, CSS...) load xong
