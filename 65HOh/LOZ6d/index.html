@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://api1.ldpform.com/" crossorigin="">
   <link rel="preconnect" href="https://a.ladipage.com/" crossorigin="">
   <link rel="preconnect" href="https://api.sales.ldpform.net/" crossorigin="">
-  <link rel="stylesheet" href="https://kimhyassets.vercel.app/assets_01/lib/css2" as="style"
+  <link rel="stylesheet" href="/65HOh/lib/font.css" as="style"
     onload="this.onload = null; this.rel = &#39;stylesheet&#39;;">
   <link rel="preload" href="https://kimhyassets.vercel.app/assets_01/lib/ladipagev3.min.js" as="script">
   <style id="style_ladi" type="text/css">
@@ -679,7 +679,7 @@
   </style>
   <style id="style_element" type="text/css">
     #SECTION1 {
-      height: 800.92px;
+      height: 784.92px;
     }
 
     #SECTION2 {
@@ -718,7 +718,7 @@
     }
 
     #HEADLINE61>.ladi-headline {
-      font-family: QybWyYWSWmYWLVNlbWlCbxkLnRZg;
+      font-family: MUZUViWSVAtQWxpchlaWEubRm;
       font-size: 19px;
       line-height: 1.6;
       color: rgb(255, 255, 255);
@@ -779,18 +779,18 @@
     }
 
     #IMAGE4 {
-      width: 420px;
-      height: 140px;
-      top: 605.92px;
-      left: 0.6px;
+      height: 75px;
+      width: 241px;
+      top: 523px;
+      left: 177px;
     }
 
     #IMAGE4>.ladi-image>.ladi-image-background {
-      width: 420px;
-      height: 140px;
+      width: 100%;
+      height: 100%;
       top: 0px;
       left: 0px;
-      background-image: url("https://w.ladicdn.com/s750x450/67bd2a5c9420850128acb5d0/9-20251015144113-dd8i3.png");
+      background-image: url("/65HOh/lib/2010.png");
     }
 
     #IMAGE5 {
@@ -848,7 +848,7 @@
 
     #HEADLINE7 {
       width: 240px;
-      top: 140.939px;
+      top: 180.939px;
       left: 5.5px;
     }
 
@@ -862,7 +862,7 @@
 
 
     #HEADLINE91 {
-      top: 90px;
+      top: 100px;
       left: 4px;
       width: 240px;
     }
@@ -870,7 +870,7 @@
     #HEADLINE91>.ladi-headline {
       font-family: VVZOSVDaHVZWxLlRURg;
       font-size: 30px;
-      line-height: 1.6;
+      line-height: 1.2;
       color: rgb(131, 95, 45);
       text-align: left;
     }
@@ -1327,11 +1327,11 @@
             <div class="ladi-image-background" bis_skin_checked="1"></div>
           </div>
         </div>
-        <!-- <div id="IMAGE4" class="ladi-element" bis_skin_checked="1">
+        <div id="IMAGE4" class="ladi-element" bis_skin_checked="1">
           <div class="ladi-image" bis_skin_checked="1">
             <div class="ladi-image-background" bis_skin_checked="1"></div>
           </div>
-        </div> -->
+        </div>
         <!-- <div id="IMAGE5" class="ladi-element ladi-animation" bis_skin_checked="1">
           <div class="ladi-image" bis_skin_checked="1">
             <div class="ladi-image-background" bis_skin_checked="1"></div>
@@ -1347,11 +1347,11 @@
           <h3 class="ladi-headline" style="text-align: center; color: red;">VIỆT NAM<br /></h3>
         </div>
 
-        <div id="HEADLINE8" class="ladi-element ladi-animation" style="top: 466px; width: 240px; left: 180px;">
+        <!-- <div id="HEADLINE8" class="ladi-element ladi-animation" style="top: 466px; width: 240px; left: 180px;">
           <h3 class="ladi-headline"
             style="text-align: center; background: linear-gradient(90deg, #E95BA8, #FFB67F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold; font-size: 120px;">
             20/10<br /></h3>
-        </div>
+        </div> -->
         <div id="IMAGE7" class="ladi-element ladi-animation" bis_skin_checked="1">
           <div class="ladi-image" bis_skin_checked="1">
             <div class="ladi-image-background" bis_skin_checked="1"></div>
@@ -1384,21 +1384,16 @@
         </div>
       </div>
     </div>
-    <div id="SECTION2" class="ladi-section" bis_skin_checked="1">
-      <div class="ladi-section-background" bis_skin_checked="1"></div>
-      <div class="ladi-container" bis_skin_checked="1">
-        <div data-action="true" id="GROUP21" class="ladi-element ladi-animation">
-          <div class="ladi-group">
-            <div id="BOX27" class="ladi-element">
-              <div class="ladi-box ladi-transition"></div>
-            </div>
-            <div data-action="true" id="HEADLINE61" class="ladi-element">
-              <p class="ladi-headline ladi-transition">TẢI ẢNH THIỆP<br /></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Nút tải ảnh mới -->
+    <button id="downloadCard" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+         background: linear-gradient(90deg, #E95BA8, #FFB67F);
+         color: white; border: none; padding: 12px 20px;
+         border-radius: 30px; font-weight: bold;
+         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+         font-size: 14px;
+         opacity: 0; pointer-events: none; transition: opacity 0.6s ease;">
+      📸 Tải ảnh thiệp
+    </button>
   </div>
   <div id="backdrop-popup" class="backdrop-popup" bis_skin_checked="1"></div>
   <div id="backdrop-dropbox" class="backdrop-dropbox" bis_skin_checked="1"></div>
@@ -1406,7 +1401,7 @@
   <script id="script_lazyload"
     type="text/javascript">window.lazyload_run = function (dom, is_first, check_dom_rect) { if (check_dom_rect && (document.body.clientWidth <= 0 || document.body.clientheight <= 0)) { return setTimeout(function () { window.lazyload_run(dom, is_first, check_dom_rect); }, 1); } var style_lazyload = document.getElementById('style_lazyload'); var list_element_lazyload = dom.querySelectorAll('body.lazyload .ladi-overlay, body.lazyload .ladi-box, body.lazyload .ladi-button-background, body.lazyload .ladi-collection-item, body.lazyload .ladi-countdown-background, body.lazyload .ladi-form-item-background, body.lazyload .ladi-form-label-container .ladi-form-label-item.image, body.lazyload .ladi-frame-background, body.lazyload .ladi-gallery-view-item, body.lazyload .ladi-gallery-control-item, body.lazyload .ladi-headline, body.lazyload .ladi-image-background, body.lazyload .ladi-image-compare, body.lazyload .ladi-list-paragraph ul li, body.lazyload .ladi-section-background, body.lazyload .ladi-survey-option-background, body.lazyload .ladi-survey-option-image, body.lazyload .ladi-tabs-background, body.lazyload .ladi-video-background, body.lazyload .ladi-banner, body.lazyload .ladi-spin-lucky-screen, body.lazyload .ladi-spin-lucky-start'); var docEventScroll = window; for (var i = 0; i < list_element_lazyload.length; i++) { var rect = list_element_lazyload[i].getBoundingClientRect(); if (rect.x == "undefined" || rect.x == undefined || rect.y == "undefined" || rect.y == undefined) { rect.x = rect.left; rect.y = rect.top; } var offset_top = rect.y + window.scrollY; if (offset_top >= window.scrollY + window.innerHeight || window.scrollY >= offset_top + list_element_lazyload[i].offsetHeight) { list_element_lazyload[i].classList.add('ladi-lazyload'); } } if (typeof style_lazyload != "undefined" && style_lazyload != undefined) { style_lazyload.parentElement.removeChild(style_lazyload); } document.body.classList.remove("lazyload"); var currentScrollY = window.scrollY; var stopLazyload = function (event) { if (event.type == "scroll" && window.scrollY == currentScrollY) { currentScrollY = -1; return; } docEventScroll.removeEventListener('scroll', stopLazyload); list_element_lazyload = document.getElementsByClassName('ladi-lazyload'); while (list_element_lazyload.length > 0) { list_element_lazyload[0].classList.remove('ladi-lazyload'); } }; if (is_first) { var scrollEventPassive = null; try { var opts = Object.defineProperty({}, 'passive', { get: function () { scrollEventPassive = { passive: true }; } }); window.addEventListener('testPassive', null, opts); window.removeEventListener('testPassive', null, opts); } catch (e) { } docEventScroll.addEventListener('scroll', stopLazyload, scrollEventPassive); } return dom; }; window.lazyload_run(document, true, true);</script>
   <!--[if lt IE 9]><script src="https://w.ladicdn.com/v5/source/html5shiv.min.js?v=1760513172882"></script><script src="https://w.ladicdn.com/v5/source/respond.min.js?v=1760513172882"></script><![endif]-->
-  <link href="https://kimhyassets.vercel.app/assets_01/lib/css2" rel="stylesheet" type="text/css">
+  <link href="/65HOh/lib/font.css" rel="stylesheet" type="text/css">
   <style type="text/css">
     @-webkit-keyframes fadeInUp {
       0% {
@@ -1490,21 +1485,70 @@
     });
   </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
-    document.getElementById("GROUP21").addEventListener("click", () => {
+    document.getElementById("downloadCard").addEventListener("click", async () => {
       const section = document.getElementById("SECTION1");
-      domtoimage.toPng(section, { quality: 1, cacheBust: true })
-        .then(function (dataUrl) {
-          const link = document.createElement('a');
-          link.download = 'thiep-2010.png';
+      if (!section) return alert("Không tìm thấy thiệp!");
+
+      // Hiệu ứng chờ
+      const newTab = window.open("", "_blank");
+      newTab.document.write(`
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
+                height:100vh;font-family:sans-serif;text-align:center;">
+      <div style="width:40px;height:40px;border:4px solid #f3f3f3;
+                  border-top:4px solid #E95BA8;border-radius:50%;
+                  animation:spin 1s linear infinite;"></div>
+      <p style="margin-top:20px;font-size:16px;">⏳ Đang tạo ảnh thiệp...</p>
+      <style>@keyframes spin {from{transform:rotate(0deg);}to{transform:rotate(360deg);}}</style>
+    </div>
+  `);
+
+      try {
+        const scale = window.devicePixelRatio || 2; // tự động lấy DPI
+        const canvas = await html2canvas(section, {
+          scale: scale,
+          useCORS: true,
+          backgroundColor: null,
+          logging: false,
+          width: section.offsetWidth,
+          height: section.offsetHeight
+        });
+
+        const dataUrl = canvas.toDataURL("image/png", 1.0);
+
+        // 💻 PC tải trực tiếp
+        if (!/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+          const link = document.createElement("a");
+          link.download = "thiep-2010.png";
           link.href = dataUrl;
           link.click();
-        })
-        .catch(function (error) {
-          console.error('Lỗi khi chụp ảnh:', error);
-        });
+          newTab.close();
+        } else {
+          // 📱 Mobile mở ảnh để lưu
+          newTab.document.body.innerHTML = `
+        <img src="${dataUrl}" style="width:100%;height:auto;display:block;margin:auto;">
+        <p style="text-align:center;font-family:sans-serif;">📥 Giữ ảnh để lưu hoặc chia sẻ</p>
+      `;
+        }
+      } catch (err) {
+        console.error(err);
+        newTab.close();
+        alert("❌ Lỗi khi tạo ảnh, vui lòng thử lại.");
+      }
     });
   </script>
+
+
+  <script>
+    // Khi trang (bao gồm ảnh, font, CSS...) load xong
+    window.addEventListener('load', () => {
+      const btn = document.getElementById("downloadCard");
+      btn.style.opacity = "1";
+      btn.style.pointerEvents = "auto";
+    });
+  </script>
+
 
   <script src="https://kimhyassets.vercel.app/assets_01/lib/ladipagev3.min.js" type="text/javascript"></script>
   <script id="script_event_data"
@@ -1541,6 +1585,27 @@
   <div
     style="position: fixed; left: 417.774px; top: -20px; font-size: 20px; opacity: 0.895587; animation: 3s linear 0s 1 normal forwards running fall;">
     🩷 </div>
+  <style>
+    /* ✅ Bật lại khả năng click cho nút tải */
+    #GROUP21,
+    #GROUP21 * {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+    }
+
+    /* ✅ Giúp nút luôn nằm trên cùng */
+    #GROUP21 {
+      position: relative !important;
+      z-index: 9999 !important;
+    }
+
+    /* ✅ Ngăn Ladipage transform làm lệch vùng click */
+    #SECTION1,
+    #SECTION1 * {
+      transform: none !important;
+    }
+  </style>
+
 </body>
 <en2vi-host class="corom-element" version="3"
   style="all: initial; position: absolute; top: 0; left: 0; right: 0; height: 0; margin: 0; text-align: left; z-index: 10000000000; pointer-events: none; border: none; display: block"><template
