@@ -1518,18 +1518,18 @@
         const dataUrl = canvas.toDataURL("image/png", 1.0);
 
         // 💻 PC tải trực tiếp
-        if (!/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+        // Nếu là mobile → hiển thị ảnh blob, không bị .bin
+        if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+          canvas.toBlob(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            newTab.location.href = blobUrl; // mở đúng ảnh
+          }, "image/png");
+        } else {
           const link = document.createElement("a");
           link.download = "thiep-2010.png";
-          link.href = dataUrl;
+          link.href = canvas.toDataURL("image/png", 1.0);
           link.click();
           newTab.close();
-        } else {
-          // 📱 Mobile mở ảnh để lưu
-          newTab.document.body.innerHTML = `
-        <img src="${dataUrl}" style="width:100%;height:auto;display:block;margin:auto;">
-        <p style="text-align:center;font-family:sans-serif;">📥 Giữ ảnh để lưu hoặc chia sẻ</p>
-      `;
         }
       } catch (err) {
         console.error(err);
